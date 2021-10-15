@@ -2,17 +2,15 @@ import java.awt.*;
 import java.text.NumberFormat;
 import java.util.*;
 
-public class Main {
-	
+public class Main {	
 	public static void main(String[] args) {
-		
 		
 		final byte MONTHS_IN_YEAR = 12;
 		final byte PERCENT = 100;
 		
 		Scanner scanner = new Scanner(System.in);
 		
-    //Principle Of Loan
+    //Principle
 		System.out.print("Principle: ");
 		int principle = scanner.nextInt();
     
@@ -29,8 +27,7 @@ public class Main {
     
     //Convert number of years to months
 		double NumberOfMonths = years * MONTHS_IN_YEAR;
-		
-		
+
     //Formula
 		double mortgage = principle * ((monthlyInterest*Math.pow((1+monthlyInterest), NumberOfMonths))/(Math.pow((1+monthlyInterest),NumberOfMonths)-1));
 		
