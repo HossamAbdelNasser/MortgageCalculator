@@ -6,34 +6,36 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		
+		final byte MONTHS_IN_YEAR = 12;
+		final byte PERCENT = 100;
+		
+		Scanner scanner = new Scanner(System.in);
+		
     //Principle Of Loan
 		System.out.print("Principle: ");
-		Scanner p = new Scanner(System.in);
-		double principle = p.nextDouble();
+		int principle = scanner.nextInt();
     
     //Annual interest Rate
 		System.out.print("Annual interest Rate: ");
-		Scanner r = new Scanner(System.in);
-		double rate = p.nextDouble();		
+		float annualInterest = scanner.nextFloat();				
     
     //Number of years
 		System.out.print("Period (years): ");
-		Scanner n = new Scanner(System.in);
-		double period = n.nextDouble();		
+		byte years = scanner.nextByte();		
     
-		//Convert Annual rate to monthly rate
-		double mRate = (rate/100)/12;
+    //Convert Annual interest to monthly interest
+		double monthlyInterest = (annualInterest/PERCENT)/MONTHS_IN_YEAR;
     
     //Convert number of years to months
-		double mN = period * 12;
+		double NumberOfMonths = years * MONTHS_IN_YEAR;
 		
-		System.out.print("Mortgage: ");
 		
-		//Formula
-		double mortgage = principle * ((mRate*Math.pow((1+mRate), mN))/(Math.pow((1+mRate),mN)-1));
+    //Formula
+		double mortgage = principle * ((monthlyInterest*Math.pow((1+monthlyInterest), NumberOfMonths))/(Math.pow((1+monthlyInterest),NumberOfMonths)-1));
 		
-		//Formatting the result to currency
+    //Formatting the result to currency
 		NumberFormat result = NumberFormat.getCurrencyInstance();
-		System.out.println(result.format(mortgage));
+		System.out.println("Mortgage: " + result.format(mortgage));
 	}
 }
